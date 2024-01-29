@@ -37,13 +37,33 @@ public void tester()
 }
 public boolean palindrome(String word)
 {
-  //your code here
-  return false;
+   if (reverse(onlyLetters(noSpaces(word))).equalsIgnoreCase((onlyLetters(noSpaces(word)))))
+    return true;
+   return false;
 }
 public String reverse(String str)
 {
     String sNew = new String();
-    //your code here
+    for (int i = str.length(); i > 0; i--)
+     sNew+= str.substring(i-1,i);
     return sNew;
+}
+  public String noSpaces(String sWord){
+  String spaceless = "";
+  for (int i = 0; i < sWord.length(); i++)
+  {
+    if (sWord.substring(i,i+1).equals(" ") == false)
+    spaceless+=sWord.substring(i,i+1);
+  }
+  return spaceless;
+}
+  public String onlyLetters(String sString){
+  String nString = "";
+  for (int i = 0; i< sString.length(); i++)
+  {
+    if (Character.isLetter(sString.charAt(i)))
+    nString += sString.substring(i,i+1);
+  }
+  return nString;
 }
 }
